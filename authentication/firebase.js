@@ -6,9 +6,53 @@ var config = {
     storageBucket: "",
     messagingSenderId: "564080125605"
   };
+  
   firebase.initializeApp(config);
 
   var database = firebase.database();
+
+  $(".register form").on("submit", function(event){
+    event.preventDefault();
+
+    var email = $(".register .email").val();
+    var password = $(".register .password").val();
+
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then(function(user) {
+      console.log(user);
+    })
+    .catch(function(err) {
+      console.log(err);
+
+    });
+    
+    $(".login form").on("submit", function(event){
+      event.preventDefault();
+
+    var email = $(".login .email").val();
+    var password = $(".login .password").val();
+
+    firebase.auth().signInUserWithEmailAndPassword(email, password)
+    .then(function(user) {
+      console.log(user);
+    })
+    .catch(function(err) {
+      console.log(err);
+
+    });
+
+    });
+
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        console.log(user);
+      }
+      else {
+        console.log("No user signed in.");
+      }
+    });
+
+  });
 
   
 
