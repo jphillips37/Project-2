@@ -24,6 +24,7 @@ var config = {
     .catch(function(err) {
       console.log(err);
 
+      });
     });
     
     $(".login form").on("submit", function(event){
@@ -39,8 +40,7 @@ var config = {
     .catch(function(err) {
       console.log(err);
 
-    });
-
+      });
     });
 
     firebase.auth().onAuthStateChanged(function(user) {
@@ -52,7 +52,24 @@ var config = {
       }
     });
 
-  });
+    firebase.auth().onAuthStateChanged(function(user) {
+      $(".post form").off();
+
+      if (user) {
+        $(".post form").on("submit", function(event){
+          event.preventDefault();
+
+          var post = $(".post .text").val();
+
+          firebase.database().ref("/users/" + user.uid).child("/post").push(post);
+        })
+      } else {
+        $(".post form").on("submit", function(event) {
+          alert("please log in!");
+        })
+      }
+      
+    });
 
   
 
