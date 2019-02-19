@@ -11,6 +11,7 @@ var config = {
 
   var database = firebase.database();
 
+// register account function
   $(".register form").on("submit", function(event){
     event.preventDefault();
 
@@ -26,7 +27,8 @@ var config = {
 
       });
     });
-    
+
+// login function
     $(".login form").on("submit", function(event){
       event.preventDefault();
 
@@ -43,6 +45,7 @@ var config = {
       });
     });
 
+// check to see if any users are logged in
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         console.log(user);
@@ -52,6 +55,7 @@ var config = {
       }
     });
 
+// turn off post functionality until a user is logged in
     firebase.auth().onAuthStateChanged(function(user) {
       $(".post form").off();
 
