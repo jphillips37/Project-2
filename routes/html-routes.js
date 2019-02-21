@@ -6,15 +6,25 @@ module.exports = function(app) {
 
   // index route loads view.html
   app.get("/", function(req, res) {
+    var postsObject = {};
     var object = {};
     db.Post.findAll({
       order:[
         ["createdAt", "DESC"]
       ],
-      limit: 2
+      limit: 2,
+      include: [db.User]
     }).then(function(results){
+      var postsArray = [];
+
       object.title = results[0].post_title;
       object.body = results[0].post_body;
+      object.region = results[0].region;
+      object.city = results[0].city;
+      object.user = results[0].User.user_name;
+      object.time = results[0].createdAt;
+      
+      //console.log(results[0].User.user_name);
       console.log(object);
       res.render("index", object);
     })
