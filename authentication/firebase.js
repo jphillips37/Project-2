@@ -9,7 +9,7 @@ var config = {
   
   firebase.initializeApp(config);
 
-  var database = firebase.database();
+  let database = firebase.database();
 
 // register account function
   $(".register form").on("submit", function(event){
@@ -74,3 +74,23 @@ var config = {
       }
       
     });
+
+    function gitHubLogin() {
+
+      var provider = new firebase.auth.GithubAuthProvider();
+
+      firebase.auth().signInWithPopup(provider).then(function(result) {
+        // This gives you a GitHub Access Token. You can use it to access the GitHub API.
+        var token = result.credential.accessToken;
+        // The signed-in user info.
+        var user = result.user;
+        // ...
+      }).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log(errorMessage);
+      });
+    }
+
+    $("#githubBtn").on("click", gitHubLogin);

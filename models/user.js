@@ -10,6 +10,13 @@ module.exports = function(sequelize, DataTypes) {
         user_points: {
             type: DataTypes.INTEGER,
             allowNull: true
+        },
+        user_profile_pic: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            validate: {
+                len:[1]
+            }
         }
     });
 
