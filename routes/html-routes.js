@@ -1,13 +1,9 @@
 var path = require("path");
 var db = require("../models/index.js");
 module.exports = function(app) {
-
-  // Each of the below routes just handles the HTML page that the user gets sent to.
-
-  // index route loads view.html
   app.get("/", function(req, res) {
     var postsObject = {};
-    var object = {};
+    
     db.Post.findAll({
       order:[
         ["createdAt", "DESC"]
@@ -17,27 +13,78 @@ module.exports = function(app) {
     }).then(function(results){
       var postsArray = [];
 
-      object.title = results[0].post_title;
-      object.body = results[0].post_body;
-      object.region = results[0].region;
-      object.city = results[0].city;
-      object.user = results[0].User.user_name;
-      object.time = results[0].createdAt;
+      for (i=0; i < results.length; i++){
+        var object = {};
+
+        object.title = results[i].post_title;
+        object.body = results[i].post_body;
+        object.region = results[i].region;
+        object.city = results[i].city;
+        object.user = results[i].User.user_name;
+        object.time = results[i].createdAt;
+
+        postsArray.push(object);
+      }
       
-      //console.log(results[0].User.user_name);
-      console.log(object);
-      res.render("index", object);
+      postsObject.objectArray = postsArray;
+      console.log(postsObject);
+      res.render("index", postsObject);
     })
 
   });
 
-  app.get("/cms", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/cms.html"));
+  app.get("/region", function(req, res) {
+    db.sequelize.query('select distinct region from posts', { raw: true }).then(function(results){
+      var regions = [];
+      //res.json(results[0][0]);
+
+      for(i=0; i < results[0].length; i++){
+        regions.push(results[0][i]);
+      }
+
+      var regionsList = {
+        regions: regions
+      };
+
+      res.render("forum", regionsList)
+    });
   });
 
-  // blog route loads blog.html
-  app.get("/blog", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/blog.html"));
+  app.get("/:region/cities", function(req, res) {
+    var region = req.params.region;  
+    region.replace(/%20/g, " ");
+    console.log(region);  
+    var queryString = "select distinct city from posts where region like '"+region+"'";
+    var cities = [];
+
+    db.sequelize.query(queryString, { raw: true }).then(function(results){
+      
+      for(i=0; i < results[0].length; i++){
+        console.log(results[0][0]);
+        cities.push(results[0][i].city);
+      };
+
+      var cityList = {
+        cityArray: cities
+      }
+      res.render("forum", cityList);
+    });
+    
   });
 
+  app.get("/:region/:city/posts", function(req, res) {
+    var city = req.params.city;
+
+    db.Post.findAll({
+      where: {
+        city: city
+      },
+      order:[
+        ["createdAt", "DESC"]
+      ],
+      include: [db.User]
+    }).then(function(results){
+      res.json(results);
+    });
+  });
 };
