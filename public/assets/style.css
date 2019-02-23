@@ -4,24 +4,15 @@
     box-sizing: border-box;   
 }
 body {
-    background-color: rgb(56, 176, 209);
+    background-color: rgb(20, 183, 228);
 }
 .navbar {
-    background-color: rgb(25, 126, 162);  
+    background-color: rgb(20, 87, 111);  
   } 
 
 h2{
     font-family: 'Permanent Marker', cursive;
 }
-  /* nav{
-    background-color: aqua;
-}
-.navbar-brand
-{
-  color: #a72121; 
-  font-family: Poppins, Monospace;
-  font-size: 22px;
-}   */
 .navbar {
   background: #fff;
   padding-left: 16px;
@@ -205,10 +196,13 @@ h2{
 /* Mobile */
 @media only screen and (max-width: 480px){
     body {
-        background-color: rgb(116, 162, 25); 
+        background-color: rgb(25, 137, 162); 
       }
       img#hide {
         display: none;
+      }
+      #logo {
+        font-size: 18px;
       }
 
       
@@ -217,45 +211,48 @@ h2{
 /* Tablet */
 @media only screen and (max-width: 768px){
     body {
-        background-color: rgb(162, 25, 25); 
+      background-color: rgb(25, 137, 162);
       }
       img {
         width: 100%;
         height: auto;
+      }
+      #logo {
+        font-size: 20px;
       }
       .navbar .dropdown-menu.form-wrapper {
         width: 100%;
         padding: 10px 15px;
         background: transparent;
         border: none;
-    }
-    .navbar .form-inline {
-        display: block;
-    }
-    .navbar .input-group {
-        width: 100%;
-    }
-    .navbar .nav .btn-primary, .navbar .nav .btn-primary:active {
-        display: block;
-    }
+      }
+      .navbar .form-inline {
+          display: block;
+      }
+      .navbar .input-group {
+          width: 100%;
+      }
+      .navbar .nav .btn-primary, .navbar .nav .btn-primary:active {
+          display: block;
+      }
 
 }
 
 /* Desktop */
 @media only screen and (max-width: 992px){
     body {
-        background-color: rgb(25, 162, 57); 
+      background-color: rgb(25, 137, 162);  
       }
       img {
         width: 100%;
-        height: auto;
+        height: 170px;
       }
 }
 
 /* Huge */
 @media only screen and (max-width: 1280px){
     body {
-        background-color: rgb(51, 168, 186); 
+      background-color: rgb(25, 137, 162);  
       }
       img {
         width: 100%;
