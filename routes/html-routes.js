@@ -1,10 +1,6 @@
 var path = require("path");
 var db = require("../models/index.js");
 module.exports = function(app) {
-
-  // Each of the below routes just handles the HTML page that the user gets sent to.
-
-  // index route loads view.html
   app.get("/", function(req, res) {
     var postsObject = {};
     
@@ -58,23 +54,39 @@ module.exports = function(app) {
     var region = req.params.region;  
     region.replace(/%20/g, " ");
     console.log(region);  
-    var queryString = "select distinct city from posts";
+    var queryString = "select distinct city from posts where region like '"+region+"'";
     var cities = [];
 
     db.sequelize.query(queryString, { raw: true }).then(function(results){
+      
       for(i=0; i < results[0].length; i++){
         console.log(results[0][0]);
-        cities.push(results[0].city);
+        cities.push(results[0][i].city);
       };
-      //res.json(results);
+
+      var cityList = {
+        cityArray: cities
+      }
+      res.render("forum", cityList);
+      //console.log(cities);
     });
-    res.json(cities);
-    console.log(cities);
+    
     //res.render("forum", cities);
   });
 
-  app.get("/:region/:city", function(req, res) {
-    
-  });
+  app.get("/:region/:city/posts", function(req, res) {
+    var city = req.params.city;
 
+    db.Post.findAll({
+      where: {
+        city: city
+      },
+      order:[
+        ["createdAt", "DESC"]
+      ],
+      include: [db.User]
+    }).then(function(results){
+      res.json(results[0]);
+    });
+  });
 };

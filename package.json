@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/jphillips37/Project-2#readme",
   "dependencies": {
+    "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
     "mysql": "^2.16.0",
