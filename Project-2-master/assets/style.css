@@ -93,7 +93,7 @@ h2{
   border: none;
 }
 
-.navbar .dropdown-menu .form-wrapper {
+.navbar .dropdown-menu.form-wrapper {
   width: 280px;
   padding: 20px;
   left: auto;
