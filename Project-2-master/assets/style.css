@@ -93,7 +93,7 @@ h2{
   border: none;
 }
 
-.navbar .dropdown-menu .form-wrapper {
+.navbar .dropdown-menu.form-wrapper {
   width: 280px;
   padding: 20px;
   left: auto;
@@ -201,6 +201,7 @@ h2{
 
 
 
+
 /* Mobile */
 @media only screen and (max-width: 480px){
     body {
@@ -237,6 +238,7 @@ h2{
     .navbar .nav .btn-primary, .navbar .nav .btn-primary:active {
         display: block;
     }
+
 }
 
 /* Desktop */
@@ -261,9 +263,10 @@ h2{
       }
       .navbar {
         background-color: rgb(25, 126, 162);  
+
       }
       .form-inline .input-group {
         width: 300px;
         margin-left: 30px;
-    }
-}
+      }
+    } 
