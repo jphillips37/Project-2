@@ -68,10 +68,8 @@ module.exports = function(app) {
         cityArray: cities
       }
       res.render("forum", cityList);
-      //console.log(cities);
     });
     
-    //res.render("forum", cities);
   });
 
   app.get("/:region/:city/posts", function(req, res) {
@@ -86,7 +84,7 @@ module.exports = function(app) {
       ],
       include: [db.User]
     }).then(function(results){
-      res.json(results[0]);
+      res.json(results);
     });
   });
 };
