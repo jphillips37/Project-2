@@ -87,4 +87,17 @@ module.exports = function(app) {
       res.json(results);
     });
   });
+
+  app.get("/posts/:id", function(req, res) {
+    var postId = req.params.id;
+
+    db.Post.findAll({
+      where: {
+        id: postId
+      },
+      include: [db.User]
+    }).then(function(results){
+      res.json(results);
+    });
+  });
 };
