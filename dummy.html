@@ -59,95 +59,64 @@
                     </div>
 
                     <!--login/register button-->
-                    <div class="login">
-                    <ul class="nav navbar-nav navbar-right ml-auto">
-                        <li class="nav-item">
-                            <a data-toggle="dropdown" class="nav-link
-                                dropdown-toggle" href="#">Login</a>
-                            <ul class="dropdown-menu form-wrapper">
-                                <li>
-                                    <form>
-                                        <p class="hint-text">Sign in with your
-                                            social media account</p>
-                                        <button type="button" id="githubBtn" class="btn btn-light">
-                                            <img src="https://github.com/jphillips37/Project-2/blob/master/img/GitHub-logo-sm.png?raw=true" alt="Github_logo">   Github</button>
-                                        <div class="or-seperator"><b>or</b></div>
-                                        <div class="form-group">
-                                            <input type="email"
-                                                class="form-control email"
-                                                id="txtEmail"
-                                                placeholder="Email"
-                                                required="required">
+                    <div class="col d-flex flex-row-reverse">
+                        <ul class="nav navbar-nav navbar-right ml-auto">
+                            <div class="login">
+                                <li class="nav-item">
+                                    <a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">Login</a>
+                                    <ul class="dropdown-menu form-wrapper">
+                                        <li>
+                                            <form>
+                                                <p class="hint-text">Sign in with your social media account</p>
+                                                <button type="button" id="githubBtn" class="btn btn-light">
+                                                    <img src="https://github.com/jphillips37/Project-2/blob/master/img/GitHub-logo-sm.png?raw=true" alt="Github_logo">   Github</button>
+                                                <div class="or-seperator"><b>or</b></div>
+                                                <div class="form-group">
+                                                    <input type="email" class="form-control email" id="txtEmail" placeholder="Email" required="required">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="password" class="form-control password" id="txtPassword" placeholder="Password" required="required">
+                                                </div>
+                                                <input type="submit" class="btn btn-primary btn-block" id="btnLogIn" value="Login">
+                                                <div class="form-footer">
+                                                    <a href="#">Forgot Your password?</a>
+                                                </div>
+                                            </form>
                                         </div>
-                                        <div class="form-group">
-                                            <input type="password"
-                                                class="form-control password"
-                                                id="txtPassword"
-                                                placeholder="Password"
-                                                required="required">
-                                        </div>
-                                        <input type="submit" class="btn
-                                            btn-primary
-                                            btn-block" id="btnLogIn" value="Login">
-                                        <div class="form-footer">
-                                            <a href="#">Forgot Your password?</a>
-                                        </div>
-                                    </form>
-                                </div>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" data-toggle="dropdown" class="btn
-                                btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Sign up</a>
-                            <ul class="dropdown-menu form-wrapper">
-                                <li>
-                                <!--Register account-->
-                                <div class="register">
-                                    <form>
-                                        <p class="hint-text">Fill in this form
-                                            to
-                                            create your account!</p>
-                                        <div class="form-group">
-                                            <input type="email"
-                                                class="form-control email"
-                                                id="txtEmail"
-                                                placeholder="Email"
-                                                required="required">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password"
-                                                class="form-control password"
-                                                id="txtPassword"
-                                                placeholder="Password"
-                                                required="required">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password"
-                                                class="form-control password"
-                                                id="txtPassword"
-                                                placeholder="Confirm Password"
-                                                required="required">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="checkbox-inline"><input
-                                                    type="checkbox"
-                                                    required="required"> I accept the 
-                                                    <a href="#">Terms &amp;
-                                                    Conditions</a></label>
-                                        </div>
-                                        <input type="submit" class="btn
-                                            btn-primary
-                                            btn-block" id="btnSignUp" value="Sign up">
-                                    </form>
-                                </div>
+                                    </ul>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Sign up</a>
+                                    <ul class="dropdown-menu form-wrapper">
+                                        <li>
+                                            <!--Register account-->
+                                            <div class="register">
+                                                <form>
+                                                    <p class="hint-text">Fill in this form to create your account!</p>
+                                                    <div class="form-group">
+                                                        <input type="email"class="form-control email"id="txtEmail"placeholder="Email"required="required">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="password" class="form-control password" id="txtPassword" placeholder="Password" required="required">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="password"class="form-control password" id="txtPassword" placeholder="Confirm Password" required="required">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="checkbox-inline">
+                                                        <input type="checkbox" required="required"> I accept the <a href="#">Terms &amp;Conditions</a></label>
+                                                    </div>
+                                                    <input type="submit" class="btn btn-primary btn-block" id="btnSignUp" value="Sign up">
+                                                </form>
+                                            </div>
+                                        </li>
+                                    </ul>
                                 </li>
                             </ul>
-                        </li>
-                    </ul>
-                </div>
+                        </div>
                     <!-- dropdown -->
-                    <div class="col d-flex flex-row-reverse">
-                        <div class="collapse navbar-collapse d-flex flex-row-reverse" id="navbarNavDropdown">
+                        <div id="navbarNavDropdown">
                             <ul class="navbar-nav">
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
