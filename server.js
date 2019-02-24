@@ -24,5 +24,3 @@ db.sequelize.sync({force: false}).then(function() {
     console.log("App now listening at localhost:" + PORT);
   });
 });
-
-// module.exports = router;

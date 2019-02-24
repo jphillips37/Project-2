@@ -18,8 +18,10 @@
   },
   "homepage": "https://github.com/jphillips37/Project-2#readme",
   "dependencies": {
+    "dotenv": "^6.2.0",
     "express": "^4.16.4",
-    "express-handlebars": "^3.0.0",
+    "express-handlebars": "^3.0.1",
+    "init": "^0.1.2",
     "mysql": "^2.16.0",
     "mysql2": "^1.6.5",
     "sequelize": "^4.42.0"
