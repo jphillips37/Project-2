@@ -139,52 +139,57 @@
     </div>
     <!-- images -->
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                <img src="public/img/surfing.jpg" alt="surf" width="100%" height="175">
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                <img id="hide" src="public/img/kite2.jpg" alt="kite" width="100%" height="175">
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                <img id="hide" src="public/img/wind2.jpg" alt="wind" width="100%" height="175">
-            </div>
-        </div>
-    </div>
-    <!-- Search -->
-    <br>
-    <div class="container-fluid">
-    <div class="row d-flex justify-content-center">
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search.." size="50" aria-label="Search">
-            <button class="btn btn-primary" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-        </form>
-    </div>
-</div>
-    <!-- Forum/cards -->
-    <br>
-    <div class="container-fluid">
-        <div class="card" style="width: auto;">
-            <div class="card-body">
-                <h5 class="card-title">user Name</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title</p>
-                <a href="#" class="card-link">Card link</a>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <img src="public/img/surfing.jpg" alt="surf" width="100%" height="175">
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <img id="hide" src="public/img/kite2.jpg" alt="kite" width="100%" height="175">
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <img id="hide" src="public/img/wind2.jpg" alt="wind" width="100%" height="175">
+                </div>
             </div>
         </div>
+        <!-- Search -->
         <br>
-        <div class="card" style="width: auto;">
-            <div class="card-body">
-                <h5 class="card-title">user Name</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title.</p>
-                <a href="#" class="card-link">Card link</a>
+        <div class="container-fluid">
+            <div class="row d-flex justify-content-center">
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search.." size="50" aria-label="Search">
+                    <button class="btn btn-primary" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </form>
             </div>
         </div>
+        <!-- Forum/cards -->
+        <br>
+        <div class="container-fluid">
+            <div class="card" style="width: auto;">
+                <div class="card-body">
+                    <h5 class="card-title">user Name</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p class="card-text">Some quick example text to build on the card title</p>
+                    <a href="#" class="card-link">Card link</a>
+                </div>
+            </div>
+            <br>
+            <div class="container">
+                    {{#each objectArray}}
+                       <div class="card" style="width: auto;">
+                           <div class="card-body">
+                               <!-- {{!-- <img src ="{{User.user_profile_pic}}" class="card-link"> --}} -->
+                               <h5 class="card-title">{{title}}</h5>
+                               <p class="card-text">{{body}}</p>
+                               <h6 class="card-subtitle mb-2 text-muted">{{user}}</h6>
+                           </div>
+                       </div>
+                    {{/each}}
+               </div>
         <!-- footer -->
-        <hr>
-        <footer class="container">
-            <div class="text-center">
+        
+        <footer class="text-center">
+            <div class="fixed-bottom">
+                <hr>
                 <p>&copy; Copyright 2019 Matt Urian, John Phillips, Matt Musil, Drew Lauck</p>
             </div>
         </footer>

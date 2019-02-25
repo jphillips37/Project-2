@@ -36,23 +36,16 @@
     </div>
 </nav>
     <!-- Forum/cards -->
-    <br>
-    <div class="container-fluid">
+    <hr>
+<div class="container">
+     {{#each objectArray}}
         <div class="card" style="width: auto;">
             <div class="card-body">
-                <h5 class="card-title">user Name</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title</p>
-                <a href="#" class="card-link">Card link</a>
+                {{!-- <img src ="{{User.user_profile_pic}}" class="card-link"> --}}
+                <h5 class="card-title">{{title}}</h5>
+                <p class="card-text">{{body}}</p>
+                <h6 class="card-subtitle mb-2 text-muted">{{user}}</h6>
             </div>
         </div>
-        <br>
-        <div class="card" style="width: auto;">
-            <div class="card-body">
-                <h5 class="card-title">user Name</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title.</p>
-                <a href="#" class="value">Card link</a>
-            </div>
-        </div>    
-    </div>
+     {{/each}}
+</div>
