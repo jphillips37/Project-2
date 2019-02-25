@@ -5,8 +5,8 @@ module.exports = function(app) {
   app.post("/posts", function(req, res) {
     console.log(req.body);
     db.Post.create({
-      post_title: req.body.post_title,
-      post_body: req.body.post_body,
+      post_title: req.body.title,
+      post_body: req.body.body,
       region: req.body.region,
       city: req.body.city,
       UserId: req.body.UserId

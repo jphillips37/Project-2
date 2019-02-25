@@ -8,7 +8,7 @@ module.exports = function(app) {
       order:[
         ["createdAt", "DESC"]
       ],
-      limit: 2,
+      limit: 5,
       include: [db.User]
     }).then(function(results){
       var postsArray = [];
