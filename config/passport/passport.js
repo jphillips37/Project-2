@@ -23,7 +23,7 @@ module.exports = function(passport, user) {
     "local-signup",
     new LocalStrategy(
       {
-        usernameField: "email",
+        user_nameField: "email",
 
         passwordField: "password",
 
@@ -52,7 +52,7 @@ module.exports = function(passport, user) {
 
               password: userPassword,
 
-              username: req.body.username
+              user_name: req.body.user_name
             };
 
             User.create(data).then(function(newUser) {
@@ -108,15 +108,15 @@ module.exports = function(passport, user) {
     )
   );
 
-  $("#signup-login-btn").on("click", function() {
-    window.location.href = "/signup";
-  });
+  // $("#signup-login-btn").on("click", function() {
+  //   window.location.href = "/signup";
+  // });
   
-  $("#login-btn").on("click", function() {
-    window.location.href = "/dashboard";
-  });
+  // $("#login-btn").on("click", function() {
+  //   window.location.href = "/dashboard";
+  // });
   
-  $("#logout-btn").on("click", function() {
-    window.location.href = "/logout";
-  });
+  // $("#logout-btn").on("click", function() {
+  //   window.location.href = "/logout";
+  // });
 };
