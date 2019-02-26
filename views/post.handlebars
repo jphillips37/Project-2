@@ -1,3 +1,4 @@
+<<<<<<< HEAD
     <br>
     <div class="container-fluid">
         <div class="card" style="width: auto;">
@@ -10,3 +11,19 @@
         </div>
         <br>   
     </div>
+=======
+<!-- Forum/cards -->
+<hr>
+<div class="container">
+    {{#each objectArray}}
+    <div class="card" style="width: auto;">
+        <div class="card-body">
+            {{!-- <img src ="{{User.user_profile_pic}}" class="card-link"> --}}
+            <h5 class="card-title">{{title}}</h5>
+            <p class="card-text">{{body}}</p>
+            <h6 class="card-subtitle mb-2 text-muted">{{user}}</h6>
+        </div>
+    </div>
+    {{/each}}
+</div>
+>>>>>>> eca824d21dc5735d45a2717729fc406ec639db2d

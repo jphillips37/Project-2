@@ -4,195 +4,26 @@
     box-sizing: border-box;   
 }
 body {
-    background-color: rgb(20, 183, 228);
+    background-color: rgb(26, 141, 182);
 }
-.navbar {
-    background-color: rgb(20, 87, 111);  
+nav {
+    background-color: rgb(51, 120, 145);  
   } 
 
+<<<<<<< HEAD
 h2{
     font-family: 'Permanent Marker', cursive;
 }
-.navbar {
-  background: #fff;
-  padding-left: 16px;
-  padding-right: 16px;
-  border-bottom: 1px solid #dfe3e8;
-  border-radius: 0;
-}
-
-.navbar .nav .btn-primary, .navbar .nav .btn-primary:active {
-  color: #fff;
-  background: #356BC1;
-  padding-top: 8px;
-  padding-bottom: 6px;
-  vertical-align: middle;
-  border: none;
-}
-
-.navbar .nav .btn-primary:hover, .navbar .nav .btn-primary:focus {
-  color: #fff;
-  outline: none;
-  background: #356BC1;
-}
-
-.navbar .navbar-right li:first-child a {
-  padding-right: 30px;
-}
-
-.navbar .nav-item i {
-  font-size: 18px;
-}
-
-.navbar .dropdown-item i {
-  font-size: 16px;
-  min-width: 22px;
-}
-
-.navbar ul.nav li.active a, .navbar ul.nav li.open>a {
-  background: transparent !important;
-}
-
-.navbar .nav .get-started-btn {
-  min-width: 120px;
-  margin-top: 0px;
-  margin-bottom: 8px;
-}
-
-.navbar ul.nav li.open>a.get-started-btn {
-  color: #fff;
-  background: #356BC1 !important;
-}
-
-.navbar .dropdown-menu {
-  border-radius: 1px;
-  border-color: #e5e5e5;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, .05);
-}
-
-.navbar .nav .dropdown-menu li {
-  color: #356BC1;
-  font-weight: normal;
-}
-
-.navbar .nav .dropdown-menu li a, .navbar .nav .dropdown-menu li a:hover, .navbar .nav .dropdown-menu li a:focus {
-  padding: 8px 20px;
-  line-height: normal;
-}
-
-.navbar .navbar-form {
-  border: none;
-}
-
-.navbar .dropdown-menu .form-wrapper {
-  width: 280px;
-  padding: 20px;
-  left: auto;
-  right: 0;
-  font-size: 14px;
-}
-
-.navbar .dropdown-menu.form-wrapper a {
-  color: #356BC1;
-  padding: 0 !important;
-}
-
-.navbar .dropdown-menu.form-wrapper a:hover {
-  text-decoration: underline;
-}
-
-.navbar .form-wrapper .hint-text {
-  text-align: center;
-  margin-bottom: 15px;
-  font-size: 13px;
-}
-
-.navbar .form-wrapper .social-btn .btn, .navbar .form-wrapper .social-btn .btn:hover {
-  color: #fff;
-  margin: 0;
-  padding: 0 !important;
-  font-size: 13px;
-  border: none;
-  transition: all 0.4s;
-  text-align: center;
-  line-height: 34px;
-  width: 47%;
-  text-decoration: none;
-}
-
-.navbar .social-btn .btn-primary {
-  background: #507cc0;
-}
-
-.navbar .social-btn .btn-primary:hover {
-  background: #4676bd;
-}
-
-.navbar .social-btn .btn-info {
-  background: #64ccf1;
-}
-
-.navbar .social-btn .btn-info:hover {
-  background: #4ec7ef;
-}
-
-.navbar .social-btn .btn i {
-  margin-right: 5px;
-  font-size: 16px;
-  position: relative;
-  top: 2px;
-}
-
-.navbar .form-wrapper .form-footer {
-  text-align: center;
-  padding-top: 10px;
-  font-size: 13px;
-}
-
-.navbar .form-wrapper .form-footer a:hover {
-  text-decoration: underline;
-}
-
-.navbar .form-wrapper .checkbox-inline input {
-  margin-top: 3px;
-}
-
-.or-seperator {
-  margin-top: 32px;
-  text-align: center;
-  border-top: 1px solid #e0e0e0;
-}
-
-.or-seperator b {
-  color: #666;
-  padding: 0 8px;
-  width: 30px;
-  height: 30px;
-  font-size: 13px;
-  text-align: center;
-  line-height: 26px;
-  background: #fff;
-  display: inline-block;
-  border: 1px solid #e0e0e0;
-  border-radius: 50%;
-  position: relative;
-  top: -15px;
-  z-index: 1;
-}
-
-.navbar .checkbox-inline {
-  font-size: 13px;
-}
-
-.navbar .navbar-right .dropdown-toggle::after {
-  display: none;
+footer{
+  bottom: 0;
 }
 
 
 
 
 
-
+=======
+>>>>>>> bc8430e78744a579108324fe652064052c99880e
 /* Mobile */
 @media only screen and (max-width: 480px){
     body {
@@ -215,27 +46,11 @@ h2{
       }
       img {
         width: 100%;
-        height: auto;
+        height: 175;
       }
       #logo {
         font-size: 20px;
       }
-      .navbar .dropdown-menu.form-wrapper {
-        width: 100%;
-        padding: 10px 15px;
-        background: transparent;
-        border: none;
-      }
-      .navbar .form-inline {
-          display: block;
-      }
-      .navbar .input-group {
-          width: 100%;
-      }
-      .navbar .nav .btn-primary, .navbar .nav .btn-primary:active {
-          display: block;
-      }
-
 }
 
 /* Desktop */
@@ -256,14 +71,10 @@ h2{
       }
       img {
         width: 100%;
-        height: auto;
+        height: 175px;
       }
       .navbar {
         background-color: rgb(25, 126, 162);  
 
-      }
-      .form-inline .input-group {
-        width: 300px;
-        margin-left: 30px;
       }
     } 

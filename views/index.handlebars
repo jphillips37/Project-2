@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <br>
 <div class="container">
      {{#each objectArray}}
@@ -8,6 +9,47 @@
                 <p class="card-text">{{body}}</p>
                 <h6 class="card-subtitle mb-2 text-muted">{{user}}</h6>
             </div>
+=======
+<!-- images -->
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <img src="/img/surfing.jpg" alt="surf" width="375" height="150">
         </div>
-     {{/each}}
+        <div class="col-4">
+            <img src="/img/kite2.jpg" alt="kite" width="375" height="150">
+        </div>
+        <div class="col-4">
+            <img src="/img/wind2.jpg" alt="wind" width="355" height="150">
+        </div>
+    </div>
+</div>
+<!-- Search -->
+<br>
+<div class="container-fluid">
+    <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center">
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search.." size="50" aria-label="Search">
+        </div>
+        <div class="d-flex justify-content-center">
+            <button class=" btn btn-primary" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+        </div>
+        </form>
+    </div>
+</div>
+<!-- Forum/cards -->
+<hr>
+<div class="container">
+    {{#each objectArray}}
+    <div class="card" style="width: auto;">
+        <div class="card-body">
+            {{!-- <img src ="{{User.user_profile_pic}}" class="card-link"> --}}
+            <h5 class="card-title">{{title}}</h5>
+            <p class="card-text">{{body}}</p>
+            <h6 class="card-subtitle mb-2 text-muted">{{user}}</h6>
+>>>>>>> eca824d21dc5735d45a2717729fc406ec639db2d
+        </div>
+    </div>
+    {{/each}}
 </div>
