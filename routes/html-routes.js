@@ -112,7 +112,7 @@ module.exports = function(app) {
     });
   });
 
-  app.get(":region/:city/posts/:id", function(req, res) {
+  app.get("/:region/:city/posts/:id", function(req, res) {
     var postId = req.params.id;
 
     db.Post.findAll({
@@ -121,7 +121,17 @@ module.exports = function(app) {
       },
       include: [db.User]
     }).then(function(results){
-      res.json(results);
+      var object = {};
+      object.id = results[0].id;
+      object.title = results[0].post_title;
+      object.body = results[0].post_body;
+      object.region = results[0].region;
+      object.city = results[0].city;
+      object.points = results[0].post_points;
+      object.user = results[0].User.user_name;
+      object.user_status = results[0].User.status;
+
+      res.render("post", object);
     });
   });
 };
