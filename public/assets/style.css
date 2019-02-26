@@ -4,26 +4,44 @@
     box-sizing: border-box;   
 }
 body {
-    background-color: rgb(26, 141, 182);
+    background-color: rgb(20, 183, 228);
 }
-nav {
-    background-color: rgb(51, 120, 145);  
+.navbar {
+    background-color: rgb(20, 87, 111);  
   } 
 
-<<<<<<< HEAD
 h2{
     font-family: 'Permanent Marker', cursive;
 }
-footer{
-  bottom: 0;
+.navbar {
+  background: #fff;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-bottom: 1px solid #dfe3e8;
+  border-radius: 0;
+}
+.card {
+  margin-top: 7px; 
+}
+.post {
+  background-color : rgb(57, 73, 214);
+  color: white;
+  padding: 6px 0;
+  font-weight: bolder;
+  border-color: #46b8da;
+  width: 90px;
+  height: 90px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.42;
+  border-radius: 45px;
+}
+#mybutton {
+  position: fixed;
+  bottom: 50px;
+  right: 90px;
 }
 
-
-
-
-
-=======
->>>>>>> bc8430e78744a579108324fe652064052c99880e
 /* Mobile */
 @media only screen and (max-width: 480px){
     body {
@@ -46,11 +64,27 @@ footer{
       }
       img {
         width: 100%;
-        height: 175;
+        height: auto;
       }
       #logo {
         font-size: 20px;
       }
+      .navbar .dropdown-menu.form-wrapper {
+        width: 100%;
+        padding: 10px 15px;
+        background: transparent;
+        border: none;
+      }
+      .navbar .form-inline {
+          display: block;
+      }
+      .navbar .input-group {
+          width: 100%;
+      }
+      .navbar .nav .btn-primary, .navbar .nav .btn-primary:active {
+          display: block;
+      }
+
 }
 
 /* Desktop */
@@ -71,10 +105,14 @@ footer{
       }
       img {
         width: 100%;
-        height: 175px;
+        height: auto;
       }
       .navbar {
         background-color: rgb(25, 126, 162);  
 
+      }
+      .form-inline .input-group {
+        width: 300px;
+        margin-left: 30px;
       }
     } 

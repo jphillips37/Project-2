@@ -1,5 +1,6 @@
 var path = require("path");
 var db = require("../models/index.js");
+
 module.exports = function(app) {
   app.get("/", function(req, res) {
     var postsObject = {};
