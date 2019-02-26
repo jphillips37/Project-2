@@ -10,6 +10,7 @@ nav {
     background-color: rgb(51, 120, 145);  
   } 
 
+<<<<<<< HEAD
 h2{
     font-family: 'Permanent Marker', cursive;
 }
@@ -21,6 +22,8 @@ footer{
 
 
 
+=======
+>>>>>>> bc8430e78744a579108324fe652064052c99880e
 /* Mobile */
 @media only screen and (max-width: 480px){
     body {
