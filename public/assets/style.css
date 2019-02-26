@@ -27,7 +27,6 @@ h2{
   background-color : rgb(57, 73, 214);
   color: white;
   padding: 6px 0;
-  border-radius: 15px;
   font-weight: bolder;
   border-color: #46b8da;
   width: 90px;
@@ -39,8 +38,8 @@ h2{
 }
 #mybutton {
   position: fixed;
-  bottom: 20px;
-  right: 50px;
+  bottom: 50px;
+  right: 90px;
 }
 
 /* Mobile */
