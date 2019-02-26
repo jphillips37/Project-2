@@ -20,6 +20,10 @@ h2{
   border-bottom: 1px solid #dfe3e8;
   border-radius: 0;
 }
+.card {
+  margin-top: 7px;
+  
+}
 
 /* Mobile */
 @media only screen and (max-width: 480px){
