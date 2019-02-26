@@ -34,19 +34,23 @@ module.exports = function(app) {
   });
 
   app.get("/region", function(req, res) {
-    db.sequelize.query('select distinct region from posts', { raw: true }).then(function(results){
-      var regions = [];
+    db.sequelize.query('select distinct region from Posts', { raw: true }).then(function(results){
+      var locationObject = {};
+      var location = [];
       //res.json(results[0][0]);
 
       for(i=0; i < results[0].length; i++){
-        regions.push(results[0][i]);
+        var object = {};
+        console.log(results[0][i])
+        object.region = results[0][i].region;
+        object.location = results[0][i].region;
+        object.next = "cities";
+        location.push(object);
       }
 
-      var regionsList = {
-        regions: regions
-      };
-
-      res.render("forum", regionsList)
+      locationObject.locations = location
+      console.log(locationObject);
+      res.render("forum", locationObject);
     });
   });
 
@@ -54,20 +58,29 @@ module.exports = function(app) {
     var region = req.params.region;  
     region.replace(/%20/g, " ");
     console.log(region);  
-    var queryString = "select distinct city from posts where region like '"+region+"'";
-    var cities = [];
+    var queryString = "select distinct city from Posts where region like '"+region+"'";
+
+    var locationObject = {};
+    var location = [];
 
     db.sequelize.query(queryString, { raw: true }).then(function(results){
-      
-      for(i=0; i < results[0].length; i++){
-        console.log(results[0][0]);
-        cities.push(results[0][i].city);
-      };
+      var locationObject = {};
+      var location = [];
+      //res.json(results[0][0]);
 
-      var cityList = {
-        cityArray: cities
+      for(i=0; i < results[0].length; i++){
+        var object = {};
+        console.log(results[0][i])
+        object.city = results[0][i].city;
+        object.location = results[0][i].city;
+        object.region = region;
+        object.next = "posts";
+        location.push(object);
       }
-      res.render("forum", cityList);
+
+      locationObject.locations = location
+      console.log(locationObject);
+      res.render("forum", locationObject);
     });
     
   });
@@ -84,11 +97,22 @@ module.exports = function(app) {
       ],
       include: [db.User]
     }).then(function(results){
-      res.json(results);
+      var postsArray = [];
+      var postArrayObject = {};
+
+      for (i=0; i < results.length; i++){
+        var object = {};
+        object.id = results[i].id;
+        object.title = results[i].post_title;
+
+        postsArray.push(object);
+      }
+      postArrayObject.postArray = postsArray;
+      res.render("posts", postArrayObject);
     });
   });
 
-  app.get("/posts/:id", function(req, res) {
+  app.get(":region/:city/posts/:id", function(req, res) {
     var postId = req.params.id;
 
     db.Post.findAll({
