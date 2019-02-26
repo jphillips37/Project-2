@@ -120,7 +120,7 @@
         </div>
         <div class="modal-body">
           <h2 id="match-name"></h2>
-          {{!-- <img id="match-img" src="" width="500px" alt="Photo Image"> --}}
+          <img id="match-img" src="" width="500px" alt="Photo Image">
 		  <br>
 		  Temp: <span id="temp"></span> <br>
 		  Humidity: <span id="humid"></span>% <br>
@@ -166,6 +166,23 @@ $("#submit-button").on("click", function() {
             latitude = response.lat;
             longitude = response.lng
 		});
+
+	var queryURL = "https://webcamstravel.p.rapidapi.com/webcams/list/nearby=21.34368,-157.70418,100/category=beach/orderby=popularity/limit=20?show=webcams:player";
+
+	$.ajax({
+        url: queryURL,
+		headers: {
+            "X-RapidAPI-Key": "316356a6c4msh637c6c8306ed33ap1fa0e2jsnfd0b081e04b1",
+        },
+        method: "GET",
+        dataType: "json"
+        }).then(function(response) {
+            console.log(response);
+			console.log(response.result.webcams[1].player.day.embed);
+			$("#match-img").attr("src", "http://198.16.29.118/axis-cgi/mjpg/video.cgi?resolution=704x480&dummy=garb#.XHWyeHxSVJQ.link");
+		});
+
+
 	//var queryURL = "https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?zip=44224&appid=7cf1ee64fc71f56a71b0aee99d983b15&units=imperial";
 	var queryURL = "https://api.openweathermap.org/data/2.5/weather?zip=" + zipcode + "&appid=7cf1ee64fc71f56a71b0aee99d983b15&units=imperial";
 
@@ -176,13 +193,20 @@ $("#submit-button").on("click", function() {
         }).then(function(response) {
             console.log(response);
 			$("#exampleModalLabel").text(response.name);
-			//$("#match-img").attr("src", data.photo);
+			
 			$("#temp").text(response.main.temp);
 			$("#humid").text(response.main.humidity);
 			$("#wind").text(response.wind.speed);
 			$("#weather").text(response.weather[0].description);
 		});
+
+
+	
 });
+
+
+
+
 
 
 </script>
