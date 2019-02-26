@@ -40,6 +40,7 @@ h2{
   position: fixed;
   bottom: 50px;
   right: 90px;
+  z-index: 5;
 }
 
 /* Mobile */
