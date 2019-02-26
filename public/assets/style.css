@@ -21,8 +21,26 @@ h2{
   border-radius: 0;
 }
 .card {
-  margin-top: 7px;
-  
+  margin-top: 7px; 
+}
+.post {
+  background-color : rgb(57, 73, 214);
+  color: white;
+  padding: 6px 0;
+  border-radius: 15px;
+  font-weight: bolder;
+  border-color: #46b8da;
+  width: 90px;
+  height: 90px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.42;
+  border-radius: 45px;
+}
+#mybutton {
+  position: fixed;
+  bottom: 20px;
+  right: 50px;
 }
 
 /* Mobile */
