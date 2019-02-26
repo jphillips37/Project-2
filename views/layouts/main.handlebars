@@ -141,6 +141,7 @@ var longitudes = [];
 var businessNames = [];
 
 $("#submit-button").on("click", function() {
+		event.preventDefault();
     $("#list").empty();
     $("#list").append('<u><h2>List of Where to Eat</h2></u>');
     var zipcode = $("#search-input").val().trim();
