@@ -108,15 +108,15 @@ module.exports = function(passport, user) {
     )
   );
 
-  $("#signup-login-btn").on("click", function() {
-    window.location.href = "/signup";
-  });
+  // $("#signup-login-btn").on("click", function() {
+  //   window.location.href = "/signup";
+  // });
   
-  $("#login-btn").on("click", function() {
-    window.location.href = "/dashboard";
-  });
+  // $("#login-btn").on("click", function() {
+  //   window.location.href = "/dashboard";
+  // });
   
-  $("#logout-btn").on("click", function() {
-    window.location.href = "/logout";
-  });
+  // $("#logout-btn").on("click", function() {
+  //   window.location.href = "/logout";
+  // });
 };

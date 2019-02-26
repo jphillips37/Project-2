@@ -2,11 +2,12 @@
 <html lang="en">
 
 <head>
-
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Pipe Dreams</title>
+	<!-- Jquery -->
+	<script src="https://code.jquery.com/jquery.js"></script>
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -23,15 +24,6 @@
 	<!-- Google Font and Font Awesome -->
 	<link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	{{!-- AJAX --}}
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<!-- Jquery -->
-	<script src="https://code.jquery.com/jquery.js"></script>
-	<!-- Firebase -->
-	<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-database.js"></script>
 	<!--Reset-->
 	<link rel="stylesheet" type="text/css" href="/assets/reset.css">
 	<!-- CSS -->
@@ -40,59 +32,16 @@
 
 </head>
 
-<body>
-	<nav class="navbar-expand-lg navbar-light bg-blue">
-		<div class="container">
-			<div class="row">
+	<body>
 
-				<!-- camera -->
-				<div class="col">
-					<a class="navbar-brand" href="#"><i class="fa fa-video-camera" aria-hidden="true"></i></a>
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-						aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-					</button>
+		{{{ body }}}
 
-				</div>
-				<!-- Logo -->
-				<div class="col d-flex justify-content-center">
-					<a class="navbar-brand" href="#">
-						<h2 style="font-family: 'Permanent Marker', cursive;"> Pipe Dreams</h2>
-					</a>
-				</div>
+	<hr>
 
-				<!-- dropdown -->
-				<div class="col  d-flex flex-row-reverse">
-					<div class="collapse navbar-collapse d-flex flex-row-reverse" id="navbarNavDropdown">
-						<ul class="navbar-nav">
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									<i class="fa fa-bars" aria-hidden="true"></i>
-								</a>
-								<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-									<a class="dropdown-item" href="#">Action</a>
-									<a class="dropdown-item" href="#">Another action</a>
-									<a class="dropdown-item" href="#">Something else here</a>
-								</div>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</nav>
-	<br>
-
-	{{{ body }}}
-
-	<footer class="text-center">
-		<hr>
-		<p>&copy; Copyright 2019 Matt Urian, John Phillips, Matt Musil, Drew Lauck</p>
-	</footer>
-
-	{{!-- FireBase  --}}
-	<script type="text/javascript" src="authentication/firebase.js"></script>
+	<footer class="container">
+    	<div class="text-center">
+            <p>&copy; Copyright 2019 Matt Urian, John Phillips, Matt Musil, Drew Lauck</p>
+        </div>
+    </footer>
 </body>
-
-
 </html>
