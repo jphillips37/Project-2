@@ -93,11 +93,11 @@
         <div class="d-flex justify-content-center">
             <div class="d-flex justify-content-center">
                 <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search.." size="50"
+                    <input class="form-control mr-sm-2" id="search-input" type="search" placeholder="Search.." size="50"
                         aria-label="Search">
             </div>
-            <div class="d-flex justify-content-center"">
-                <button class=" btn btn-primary" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+            <div class="d-flex justify-content-center">
+                <button class=" btn btn-primary" id="submit-button" data-toggle="modal" data-target="#Modal" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
             </div>
             </form>
         </div>
@@ -108,5 +108,85 @@
 		<hr>
 		<p>&copy; Copyright 2019 Matt Urian, John Phillips, Matt Musil, Drew Lauck</p>
 	</footer>
+
+	<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title" id="exampleModalLabel"></h1>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h2 id="match-name"></h2>
+          {{!-- <img id="match-img" src="" width="500px" alt="Photo Image"> --}}
+		  <br>
+		  Temp: <span id="temp"></span> <br>
+		  Humidity: <span id="humid"></span>% <br>
+		  Wind: <span id="wind"></span> <br>
+		  Weather: <span id="weather"></span>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
+
+<script>
+	var latitudes = [];
+var longitudes = [];
+var businessNames = [];
+
+$("#submit-button").on("click", function() {
+    $("#list").empty();
+    $("#list").append('<u><h2>List of Where to Eat</h2></u>');
+    var zipcode = $("#search-input").val().trim();
+    var liveData = {
+        zipcode: zipcode
+      };
+      //database.ref().push(liveData);
+
+
+    var latitude, longitude;
+
+    var queryURL = 'https://cors-anywhere.herokuapp.com/https://www.zipcodeapi.com/rest/0rOl7hMQcxZH79DDu2OthcjhqPDWttWMEtqM1X5IOfuAconQ1SbYjVrgOsR7m7hr/info.json/'+ zipcode + '/degrees';
+    
+    $.ajax({
+        url: queryURL,
+        headers: {
+            'Authorization': 'Bearer w3KC3brKFhrPWf7IUuN5SCc3KIMXj1CfkgHE4Wv56Mot7VJTIWOSAuBS2gfnL6fhC_Xh-TQMK1hB_w0t3hJkMTJSmrLRzLEVlnvVo18ecPgJnAk_jYg_G4f8rTwVXHYx',
+        },
+        method: "GET",
+        dataType: "json"
+        }).then(function(response) {
+            console.log(response);
+            latitude = response.lat;
+            longitude = response.lng
+		});
+	//var queryURL = "https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?zip=44224&appid=7cf1ee64fc71f56a71b0aee99d983b15&units=imperial";
+	var queryURL = "https://api.openweathermap.org/data/2.5/weather?zip=" + zipcode + "&appid=7cf1ee64fc71f56a71b0aee99d983b15&units=imperial";
+
+	$.ajax({
+        url: queryURL,
+        method: "GET",
+        dataType: "json"
+        }).then(function(response) {
+            console.log(response);
+			$("#exampleModalLabel").text(response.name);
+			//$("#match-img").attr("src", data.photo);
+			$("#temp").text(response.main.temp);
+			$("#humid").text(response.main.humidity);
+			$("#wind").text(response.wind.speed);
+			$("#weather").text(response.weather[0].description);
+		});
+});
+
+
+</script>
+
+
+
 </html>
