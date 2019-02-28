@@ -21,14 +21,14 @@ h2{
   border-radius: 0;
 }
 .card {
-  margin-top: 7px; 
+  margin-top: 7px;
 }
 .post {
   background-color : rgb(57, 73, 214);
   color: white;
   padding: 6px 0;
   font-weight: bolder;
-  border-color: #46b8da;
+  border-color: #ffffff;
   width: 90px;
   height: 90px;
   text-align: center;

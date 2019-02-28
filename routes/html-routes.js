@@ -1,6 +1,5 @@
 var path = require("path");
 var db = require("../models/index.js");
-
 module.exports = function(app) {
   app.get("/", function(req, res) {
     var postsObject = {};
@@ -38,6 +37,7 @@ module.exports = function(app) {
     db.sequelize.query('select distinct region from Posts', { raw: true }).then(function(results){
       var locationObject = {};
       var location = [];
+      //res.json(results[0][0]);
 
       for(i=0; i < results[0].length; i++){
         var object = {};
@@ -59,6 +59,9 @@ module.exports = function(app) {
     region.replace(/%20/g, " ");
     console.log(region);  
     var queryString = "select distinct city from Posts where region like '"+region+"'";
+
+    var locationObject = {};
+    var location = [];
 
     db.sequelize.query(queryString, { raw: true }).then(function(results){
       var locationObject = {};
