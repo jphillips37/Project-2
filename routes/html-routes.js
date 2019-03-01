@@ -130,5 +130,10 @@ module.exports = function(app) {
 
       res.render("post", object);
     });
+
+    app.get("/newpost", function(req, res){
+      var object = {};
+      res.render("form", object);
+    })
   });
 };
