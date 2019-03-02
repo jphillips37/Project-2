@@ -41,7 +41,7 @@
 			<div class="row">
 				<!-- camera -->
 				<div class="col">
-					<a class="navbar-brand" href="#"><i  data-toggle="modal" data-target="#Modal-cam" class="fa fa-video-camera" aria-hidden="true"></i></a>
+					<a class="navbar-brand" href="#"><i class="fa fa-video-camera" aria-hidden="true"></i></a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
 						aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 					</button>
@@ -73,6 +73,7 @@
 			</div>
 		</div>
 	</nav>
+	<br>
 	<div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
@@ -133,26 +134,6 @@
       </div>
     </div>
   </div>
-
-	<div class="modal fade" id="Modal-cam" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title" id="exampleModalLabel"></h1>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <h2>Pelican Bay, Naples</h2>
-          <img src="http://198.16.29.118/axis-cgi/mjpg/video.cgi?resolution=704x480&dummy=garb#.XHWyeHxSVJQ.link" width="500px" alt="Photo Image">
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
 </body>
 
 <script>
@@ -168,9 +149,34 @@ $("#submit-button").on("click", function() {
         zipcode: zipcode
       };
       //database.ref().push(liveData);
-  var latitude, longitude;
-
-	
+    var latitude, longitude;
+    var queryURL = 'https://cors-anywhere.herokuapp.com/https://www.zipcodeapi.com/rest/0rOl7hMQcxZH79DDu2OthcjhqPDWttWMEtqM1X5IOfuAconQ1SbYjVrgOsR7m7hr/info.json/'+ zipcode + '/degrees';
+    
+    $.ajax({
+        url: queryURL,
+        headers: {
+            'Authorization': 'Bearer w3KC3brKFhrPWf7IUuN5SCc3KIMXj1CfkgHE4Wv56Mot7VJTIWOSAuBS2gfnL6fhC_Xh-TQMK1hB_w0t3hJkMTJSmrLRzLEVlnvVo18ecPgJnAk_jYg_G4f8rTwVXHYx',
+        },
+        method: "GET",
+        dataType: "json"
+        }).then(function(response) {
+            console.log(response);
+            latitude = response.lat;
+            longitude = response.lng
+		});
+	var queryURL = "https://webcamstravel.p.rapidapi.com/webcams/list/nearby=21.34368,-157.70418,100/category=beach/orderby=popularity/limit=20?show=webcams:player";
+	$.ajax({
+        url: queryURL,
+		headers: {
+            "X-RapidAPI-Key": "316356a6c4msh637c6c8306ed33ap1fa0e2jsnfd0b081e04b1",
+        },
+        method: "GET",
+        dataType: "json"
+        }).then(function(response) {
+            console.log(response);
+			console.log(response.result.webcams[1].player.day.embed);
+			$("#match-img").attr("src", "http://198.16.29.118/axis-cgi/mjpg/video.cgi?resolution=704x480&dummy=garb#.XHWyeHxSVJQ.link");
+		});
 	//var queryURL = "https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?zip=44224&appid=7cf1ee64fc71f56a71b0aee99d983b15&units=imperial";
 	var queryURL = "https://api.openweathermap.org/data/2.5/weather?zip=" + zipcode + "&appid=7cf1ee64fc71f56a71b0aee99d983b15&units=imperial";
 	$.ajax({
@@ -185,30 +191,7 @@ $("#submit-button").on("click", function() {
 			$("#humid").text(response.main.humidity);
 			$("#wind").text(response.wind.speed);
 			$("#weather").text(response.weather[0].description);
-
-			latitude = response.coord.lat.toString();
-			longitude = response.coord.lon.toString();
-			console.log(latitude);
-			var queryURL = "https://webcamstravel.p.rapidapi.com/webcams/list/nearby=" + latitude + "," + longitude + ",250/category=beach/orderby=popularity/limit=20?show=webcams:player";
-	console.log(queryURL);
-	$.ajax({
-    url: queryURL,
-		headers: {
-      "X-RapidAPI-Key": "316356a6c4msh637c6c8306ed33ap1fa0e2jsnfd0b081e04b1",
-		},
-		method: "GET",
-		dataType: "json"
-		}).then(function(response) {
-			console.log(response);
-			console.log(response.result.webcams[0].player.day.embed);
-			// $("#match-img").attr("src", response.result.webcams[0].player.day.embed);
-			$("#match-img").attr("src", "http://198.16.29.118/axis-cgi/mjpg/video.cgi?resolution=704x480&dummy=garb#.XHWyeHxSVJQ.link");
 		});
-		});
-
-
-	// var queryURL = "https://webcamstravel.p.rapidapi.com/webcams/list/nearby=21.34368,-157.70418,100/category=beach/orderby=popularity/limit=20?show=webcams:player";
-	
 	
 });
 </script>
